@@ -27,6 +27,12 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.SystemColor;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JEditorPane;
+import javax.swing.SwingConstants;
 
 public class telas extends JFrame {
 
@@ -341,6 +347,13 @@ public class telas extends JFrame {
 				textField_7, textField_8, textArea_1, comboBox, textArea_2, comboBox_1, textArea, rec_id1, rec_id2,
 				textArea_3);
 		
+		JLabel lblParaMelhorFuncionamento = new JLabel("Para melhor funcionamento do programa, crie uma pasta com o nome \"TEMP\" no diretório C:\\");
+		lblParaMelhorFuncionamento.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblParaMelhorFuncionamento.setHorizontalAlignment(SwingConstants.LEFT);
+		lblParaMelhorFuncionamento.setForeground(Color.RED);
+		lblParaMelhorFuncionamento.setBounds(10, 329, 461, 14);
+		Alunos.add(lblParaMelhorFuncionamento);
+		
 		btnNewButton.addActionListener(aC);
 		btnNewButton_1.addActionListener(aC);
 		btnNewButton_2.addActionListener(aC);
@@ -349,5 +362,22 @@ public class telas extends JFrame {
 		btnNewButton_2_1_1.addActionListener(aC);
 		btnExcluir.addActionListener(aC);
 		btnExcluir_1.addActionListener(aC);
+	}
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
 	}
 }

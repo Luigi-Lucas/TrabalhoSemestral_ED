@@ -64,8 +64,8 @@ public class ArquivosController implements IArquivosController, ActionListener {
 		}
 	}
 
-	String path = "C:\\TEMP";
-
+	String path = "C://TEMP";
+	
 	Fila alunosFila = new Fila();
 	Fila gruposFila = new Fila();
 
@@ -308,6 +308,7 @@ public class ArquivosController implements IArquivosController, ActionListener {
 				fluxo.close();
 			}
 		} else {
+			JOptionPane.showMessageDialog(null, "Crie a pasta TEMP no diretório C:/", "ERRO", JOptionPane.ERROR_MESSAGE);
 			throw new IOException("Arquivo Inválido");
 		}
 		return false;
@@ -335,6 +336,7 @@ public class ArquivosController implements IArquivosController, ActionListener {
 				fluxo.close();
 			}
 		} else {
+			JOptionPane.showMessageDialog(null, "Crie a pasta TEMP no diretório C:\\ !!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			throw new IOException("Arquivo Inválido");
 		}
 		return false;
@@ -362,6 +364,7 @@ public class ArquivosController implements IArquivosController, ActionListener {
 				fluxo.close();
 			}
 		} else {
+			JOptionPane.showMessageDialog(null, "Crie a pasta TEMP no diretório C:\\ !!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			throw new IOException("Arquivo Inválido");
 		}
 		return true;
@@ -390,6 +393,7 @@ public class ArquivosController implements IArquivosController, ActionListener {
 				fluxo.close();
 			}
 		} else {
+			JOptionPane.showMessageDialog(null, "Crie a pasta TEMP no diretório C:\\ !!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			throw new IOException("Arquivo Inválido");
 		}
 		return "";
