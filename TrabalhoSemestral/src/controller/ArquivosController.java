@@ -109,7 +109,7 @@ public class ArquivosController implements IArquivosController, ActionListener {
 			String[] info = nomes.split("\n");
 			for (int i = 0; i < info.length; i++) {
 				if (lerAlunos(info[i]) == false) {
-					JOptionPane.showMessageDialog(null, "Aluno(a) " + info[i] + " não está cadastrado!", "ERRO",
+					JOptionPane.showMessageDialog(null, "Aluno(a) " + info[i] + " não possui um cadastro!", "ERRO",
 							JOptionPane.ERROR_MESSAGE);
 					return;
 				}
@@ -264,6 +264,9 @@ public class ArquivosController implements IArquivosController, ActionListener {
 			boolean existe = false;
 			if (arq.exists()) {
 				existe = true;
+			}
+			if (existe == false) {
+				JOptionPane.showMessageDialog(null, "Arquivo criado na pasta TEMP!", "Informação", JOptionPane.INFORMATION_MESSAGE);
 			}
 			FileWriter fileWriter = new FileWriter(arq, existe);
 			PrintWriter print = new PrintWriter(fileWriter);
